@@ -1,5 +1,7 @@
 package me.chunli.android.criminalintent;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CrimeListFragment extends Fragment {
 
+    public static final int REQUEST_CRIME = 1;
+
     private RecyclerView crimeRecyclerView;
     private CrimeListAdapter adapter;
 
@@ -25,9 +29,22 @@ public class CrimeListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_crime_list, container, false);
         crimeRecyclerView = view.findViewById(R.id.crime_recycler_view);
         crimeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new CrimeListAdapter(getActivity());
+        adapter = new CrimeListAdapter(this);
         crimeRecyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == REQUEST_CRIME && resultCode == Activity.RESULT_OK) {
+
+        }
     }
 }

@@ -10,21 +10,40 @@
         android:id="@+id/crime_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Crime Title"
-        app:layout_constraintBottom_toTopOf="@+id/crime_date"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp"
+        tools:text="Crime Title"
+        app:layout_constraintEnd_toStartOf="@+id/icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/crime_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Crime Date"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/icon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crime_title"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="Crime Date" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/handcuffs_content_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/crime_title" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_handcuffs" />
 </androidx.constraintlayout.widget.ConstraintLayout>
